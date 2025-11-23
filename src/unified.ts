@@ -147,7 +147,7 @@ function deletionWidget(state: EditorState, chunk: Chunk, hideContent: boolean) 
         reject.onmousedown = onReject
       }
     }
-    if (hideContent || chunk.fromA >= chunk.toA) return dom
+    if (hideContent || chunk.fromA >= chunk.toA || chunk.endA == chunk.fromA) return dom
 
     let text = view.state.field(originalDoc).sliceString(chunk.fromA, chunk.endA)
     let lang = syntaxHighlightDeletions && state.facet(language)
